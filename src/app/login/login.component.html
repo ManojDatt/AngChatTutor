@@ -1,0 +1,13 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <div class="fadeIn first">
+      <img src="/assets/images/login-icon.png" id="icon" alt="User Icon" width="200" />
+    </div>
+    <form [formGroup]="loginForm" (submit)="onSubmit()">
+      <input type="text" id="login" class="fadeIn second" formControlName="username" placeholder="Username" autocomplete="off">
+      <input type="password" id="password" class="fadeIn third" formControlName="password" placeholder="Password"  autocomplete="off">
+      <input type="submit" class="fadeIn fourth" value="Log In">
+      <p class="alert">{{error_message}}</p>
+    </form>
+  </div>
+</div>

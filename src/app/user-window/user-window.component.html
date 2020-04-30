@@ -1,0 +1,68 @@
+<div class="row">
+
+
+<div class="col-md-3 pt-5 pl-5">
+  <div class="chat_window">
+    <div class="top_menu">
+      <div class="title">Team Members
+        <div class="dropdown text-center">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{userProfile.username}}</a>
+            <div class="dropdown-menu dropdown-menu-center">
+                <a href="#" class="dropdown-item" (click)="logout()">Logout</a>
+            </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="slimScrollDiv">
+      <div class="list-group" data-height="180" data-scrollable="true">
+       <!-- START list group item-->
+       <div *ngFor="let user of users" class="list-group-item list-group-item-action">
+          <div class="media" (click)="getRoom($event, user)">
+            <img src="/assets/images/account_person.png" width="30">
+             <div class="media-body text-truncate">
+               
+                <p class="mb-0 ml-4"><strong class="text-primary">
+                   <span class="circle bg-success circle-lg text-left"></span><span>{{user.username}}</span></strong></p>
+                <p class="mb-1 text-sm"></p>
+             </div>
+          </div>
+       </div>
+  
+    </div>
+   </div><!-- END list group-->
+ </div>
+</div>
+<div class="col-md-9 pt-5 pr-5">
+  <div class="chat_window">
+    <div class="top_menu">
+      <div class="title" *ngIf="guest_user == undefined">Chat</div>
+      <div class="title" *ngIf="guest_user != undefined">{{guest_user.username|titlecase}}</div>
+    </div>
+    <ul class="messages" *ngIf="sendeBtnEnabled"></ul>
+    <div class="bottom_wrapper clearfix" *ngIf="sendeBtnEnabled">
+      <div class="message_input_wrapper"><input class="message_input" placeholder="Type your message here..." /></div>
+      <div class="send_message" (click)="submitMessage()">
+        <div class="icon"></div>
+        <div class="text">Send</div>
+      </div>
+    </div>
+  </div>
+  <div class="message_template">
+    <li class="message">
+      <div class="avatar"></div>
+      <div class="text_wrapper">
+        <div class="text"></div>
+      </div>
+    </li>
+  </div>
+  <div class="notification_template">
+    <li class="message">
+      <div class="alert notify">
+        <div class="text"></div>
+      </div>
+    </li>
+  </div>
+</div>
+
+</div>
